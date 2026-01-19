@@ -1,0 +1,498 @@
+/* ---
+* Stile: Tech Minimal / Terminal
+* Autore: Gemini
+* --- */
+
+/* --- Importazione Font --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* --- Variabili e Stile di Base --- */
+:root {
+  --background-color: #0d1117;
+  --primary-color: #2ea043;
+  --secondary-color: #c9d1d9;
+  --border-color: #30363d;
+  --text-color: var(--secondary-color);
+  --font-family-monospace: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family-monospace);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h2::before {
+  content: '$ ';
+  color: var(--secondary-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* --- Sovrascrittura Bootstrap --- */
+.navbar {
+  background-color: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-family: var(--font-family-monospace);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.navbar-brand:hover {
+    color: var(--secondary-color);
+}
+
+.navbar .nav-link {
+  color: var(--secondary-color);
+  font-family: var(--font-family-monospace);
+  border: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--primary-color);
+}
+
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(46, 160, 67, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.btn {
+    font-family: var(--font-family-monospace);
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* --- Classi Custom --- */
+.section-title {
+    margin-bottom: 4rem;
+}
+
+.terminal-text {
+    font-family: var(--font-family-monospace);
+}
+
+.terminal-card {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-card .card-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.terminal-card .card-title::before {
+    content: '$ project: ';
+    color: var(--secondary-color);
+}
+
+.terminal-card p {
+    margin-bottom: 0.5rem;
+}
+
+.terminal-card .tech-list {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.terminal-card .tech-list span {
+    display: inline-block;
+    background-color: var(--border-color);
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.terminal-card .tech-label::before {
+    content: '> tech: ';
+    color: var(--secondary-color);
+}
+
+/* --- Sezioni Specifiche --- */
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    font-size: 1.2rem; /* Leggermente ridotto per più linee */
+    width: 100%;
+    max-width: 650px; /* Larghezza massima per leggibilità */
+}
+
+.hero-text .terminal-prompt {
+    color: var(--secondary-color);
+}
+
+.hero-text .terminal-prompt span,
+.hero-text .terminal-prompt a {
+    color: var(--primary-color);
+}
+
+.hero-text .terminal-output-line {
+    margin: 0;
+    padding-left: 1rem; /* Indentazione per l'output */
+    color: var(--text-color);
+}
+
+.hero-text .terminal-key {
+    color: var(--primary-color);
+}
+
+.hero-text .cursor {
+    display: inline-block;
+    background-color: var(--primary-color);
+    width: 10px;
+    height: 1.2rem;
+    vertical-align: middle;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Form Contatti */
+.form-control-dark {
+    background-color: #010409;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+.form-control-dark:focus {
+    background-color: #010409;
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(46, 160, 67, 0.25);
+}
+
+.form-label::before {
+    content: '> ';
+    color: var(--primary-color);
+}
+
+/* Footer (Nuovo Stile) */
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.footer h5 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer .footer-tagline {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer ul {
+    padding-left: 0;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul a {
+    color: var(--secondary-color);
+}
+
+.footer ul a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer .social-icons a {
+    display: block;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer .social-icons i {
+    margin-right: 0.75rem;
+    width: 20px; /* Allinea le icone */
+    text-align: center;
+}
+
+.footer .footer-bottom {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- AOS Custom --- */
+[data-aos] {
+    transition-property: transform, opacity;
+}
+
+/* --- Language Switcher --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    border-left: 1px solid var(--border-color);
+    padding-left: 1rem;
+}
+
+.lang-switch {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0.5rem;
+    font-family: var(--font-family-monospace);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.lang-switch:hover {
+    opacity: 1;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.lang-switch.active {
+    color: var(--primary-color);
+    opacity: 1;
+    cursor: default;
+}
+
+/* ============================================
+   STYLING: Terminal Card con Iframe Interattivo
+   Sezione per anteprima live di siti web
+   ============================================ */
+
+/* Variante del terminal-card per ospitare anteprima interattiva */
+.terminal-card--iframe {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Header: titolo + descrizione breve */
+.iframe-header {
+    margin-bottom: 1.5rem;
+}
+
+.iframe-description {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* --- Container Iframe Responsivo --- */
+/* Usa padding-bottom trick per mantenere aspect-ratio 16:9 */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+/* Iframe: anteprima del sito esterno con transizioni smooth */
+.site-preview-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    background-color: var(--secondary-color);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Fallback grafico per browser senza supporto iframe */
+.iframe-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--border-color);
+    font-size: 0.9rem;
+    width: 90%;
+    margin: 0;
+}
+
+/* --- Effetti Hover su Desktop --- */
+/* Hover sul card: bordo highlight + glow + lift effect */
+.terminal-card--iframe:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(46, 160, 67, 0.15);
+    transform: translateY(-4px);
+}
+
+/* Hover sull'iframe: leggero zoom + glow interno */
+.terminal-card--iframe:hover .site-preview-iframe {
+    box-shadow: 0 0 15px rgba(46, 160, 67, 0.2);
+    transform: scale(1.01);
+}
+
+/* --- Pulsanti CTA (Apri Progetto) --- */
+.iframe-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.iframe-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* CTA primaria: sottolineatura e spacing extra al hover */
+.iframe-actions .btn-primary:hover {
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+}
+
+/* --- Responsive: Tablet (768px e sotto) --- */
+@media (max-width: 768px) {
+    /* Riduco padding su schermi piccoli */
+    .terminal-card--iframe {
+        padding: 1rem;
+    }
+
+    /* Aspect ratio leggermente pi\u00f9 quadrato su mobile */
+    .iframe-container {
+        padding-bottom: 60%;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+    }
+
+    .iframe-header {
+        margin-bottom: 1rem;
+    }
+
+    .iframe-description {
+        font-size: 0.9rem;
+    }
+
+    /* Stack verticale pulsanti su schermi piccoli */
+    .iframe-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .iframe-actions .btn {
+        width: 100%;
+    }
+
+    /* Disattivo effetti hover su touch devices */
+    @media (hover: none) {
+        .terminal-card--iframe:hover {
+            transform: none;
+        }
+
+        .terminal-card--iframe:hover .site-preview-iframe {
+            transform: none;
+        }
+    }
+}
+
+/* --- Responsive: Mobile (480px e sotto) --- */
+@media (max-width: 480px) {
+    .iframe-header {
+        margin-bottom: 0.75rem;
+    }
+
+    .iframe-container {
+        padding-bottom: 65%; /* Pi\u00f9 quadrato su mobile */
+        margin-bottom: 0.75rem;
+        border-radius: 4px;
+    }
+
+    .site-preview-iframe {
+        border-radius: 4px;
+    }
+
+    .iframe-actions .btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
